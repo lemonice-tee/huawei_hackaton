@@ -8,6 +8,18 @@ from evaluation import get_actual_demand
 
 def get_my_solution(d):
     # This is just a placeholder.
+    '''
+    MY PLAN // CODE 
+    - make a "queue" of all servers
+    - check dc demand
+    - check that server(s) will not exceed 90% usage by next timestamp
+        - if yes: dismiss
+        - if  no: check to see if there is a server that better meets dc server demand
+            - if yes: move current server and replace w server in queue
+            - if  no: hold
+        - if server life expectancy exceeded and no other server: buy
+    '''
+    
     return [{}]
 
 
