@@ -33,9 +33,10 @@ with open('data/datacenters.csv') as file_obj:
     for row in reader_obj: ### Self explanatory
         r1 = Datacenter(row[0], row[1], row[2], row[3])
 
-        print(r1) ### You can use this to print out the data centers
+        # print(r1) ### You can use this to print out the data centers
 
 print() ### Just to create a gap
+
 ###### Reading the different kinds of servers
 with open('data/servers.csv') as file_obj: 
     heading = next(file_obj) ### Skips the heading, using next() method 
@@ -48,6 +49,24 @@ with open('data/servers.csv') as file_obj:
     for row in reader_obj: ### Self explanatory
         r1 = Server(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
 
-        print(r1) ### You can use this to print out the servers
+        # print(r1) ### You can use this to print out the servers
 
+##################### Above is all setup based code
+##################### Below will be the main production
 
+csv_file_path = 'your_file.csv'
+chunk_size = 1  ### Reading 1 row at a time
+
+chunk_iterator = pd.read_csv("data/demand.csv", chunksize=chunk_size)
+
+i = 0 ### Counter just to read the first 5 lines
+
+for chunk in chunk_iterator:
+    
+    if i == 5: ### Counter just to read the first 5 lines
+        break
+
+    row = chunk.iloc[0]
+    print(row.to_dict())
+
+    i = i + 1
