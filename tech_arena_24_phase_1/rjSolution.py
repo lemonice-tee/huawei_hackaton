@@ -27,18 +27,27 @@ with open('data/datacenters.csv') as file_obj:
 
     reader_obj = csv.reader(file_obj) ### Reads the file
 
+    ### Header
+    print(f"{'Datacenter':<15} {'Cost Energy':>12} {'Latency':>10} {'Slots':>10} {'Cost':>10} {'Spent':>10}")
+
     for row in reader_obj: ### Self explanatory
         r1 = Datacenter(row[0], row[1], row[2], row[3])
-        # print(r1) ### You can use this to print out the data centers
 
+        print(r1) ### You can use this to print out the data centers
+
+print() ### Just to create a gap
 ###### Reading the different kinds of servers
 with open('data/servers.csv') as file_obj: 
     heading = next(file_obj) ### Skips the heading, using next() method 
 
     reader_obj = csv.reader(file_obj) ### Reads the file
 
+    ### Header
+    print(f"{'Server Generation':<20} {'Type':6} {'Purchase Price':>15} {'Slot Size':>10} {'EnergyCon':>10} {'Capacity':>10} {'Life Exp.':>10}  {'Cost to Move.':>15}  {'Maintenance.':>15}")
+
     for row in reader_obj: ### Self explanatory
         r1 = Server(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
-        print(r1) ### You can use this to print out the data centers
+
+        print(r1) ### You can use this to print out the servers
 
 
